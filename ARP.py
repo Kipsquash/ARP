@@ -17,7 +17,7 @@ def scan(ip):
         client_dict = {"ip": element[1].psrc, "mac": element[1].hwsrc}
         clients_list.append(client_dict)
 
-    return clients_list
+    return clients_list  
 
    
 #! Makes  the scan and prints the result and progress
