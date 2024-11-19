@@ -1,4 +1,3 @@
-import socket
 import scapy.all as scapy
 
 title = "IP\t\t\tMAC Address"
