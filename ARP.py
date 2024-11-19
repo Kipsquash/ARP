@@ -24,7 +24,9 @@ def scan_with_notification(ip):
     print(ip)
     print(f"Scanning {ip}...")
     scan_result = scan(ip)
-    print(f"Scanning completed. Found {len(scan_result)} responses.")
+    print(f"\n +\n + Scanning completed. Found {len(scan_result)} responses.")
+    print(title)
+    print ("IP\t\t\tMAC Address")
     for client in scan_result:
         print(client["ip"] + "\t\t" + client["mac"])
 
@@ -32,10 +34,5 @@ scan_with_notification("10.255.196.0/24") #! Sets ip as the string 1.1.1.0/8 wil
 
 
 
-#* Buffer start to seperate the scaner from the  rest of the code and outputs
-
-longueur = len(title) *3
-print ("\n" + "-" * longueur + "\n")
-#*Buffer end
 
 
