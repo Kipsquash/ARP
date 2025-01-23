@@ -1,4 +1,5 @@
 import scapy.all as scapy
+import socket, uuid, re
 
 title = "IP\t\t\tMAC Address"
 
@@ -24,15 +25,18 @@ def scan_with_notification(ip):
     print(ip)
     print(f"Scanning {ip}...")
     scan_result = scan(ip)
-    print(f"\n +\n + Scanning completed. Found {len(scan_result)} responses.")
+    print(f"\n\nScanning completed. Found {len(scan_result)} responses. \n ")
     print(title)
-    print ("IP\t\t\tMAC Address")
+    print (40 * "-" + "\n")
     for client in scan_result:
         print(client["ip"] + "\t\t" + client["mac"])
+    print ("\n"+ 40 * "-")
 
-scan_with_notification("10.255.196.0/24") #! Sets ip as the string 1.1.1.0/8 will scan all ips from 1.0.0.0 till 1.255.255.255
-
-
-
+scan_with_notification("1.0.0.0/8") #! Sets ip as the string 1.1.1.0/8 will scan all ips from 1.0.0.0 till 1.255.255.255
 
 
+print ("My MAC address in formatted way is : ", end="")
+print (':'.join(re.findall('..', '%012x' % uuid.getnode())))
+hostname = socket.gethostname()
+myip =  socket.gethostbyname(hostname)
+print("\n"+"My IP address is: ", myip + "\n") #! Prints the IP of the machine running the script
